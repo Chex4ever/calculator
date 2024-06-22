@@ -22,7 +22,7 @@ public class CalculatorServiceImpl implements CalculatorService {
 	@Override
 	public Double divide(Double num1, Double num2) {
 		if (num2 == 0) {
-			return -1.0d;
+			throw new IllegalArgumentException();
 		}
 		return num1 / num2;
 	}

@@ -17,12 +17,12 @@ public class CalculatorController {
 	}
 
 	@GetMapping
-	public String hello(@RequestParam Map<String, Object> allParams) {
-		return "<h1>Добро пожаловать в калькулятор</h1>уточните метод (/plus|/minus|/multiply|/divide) и передайте операнды ?num1=&num2=";
+	public String hello() {
+		return "Добро пожаловать в калькулятор";
 	}
 
 	@GetMapping("/{methodName}")
-	public String hello(@PathVariable String methodName, @RequestParam Map<String, String> params) {
+	public String calculate(@PathVariable String methodName, @RequestParam Map<String, String> params) {
 		if (params.containsKey("num1") && params.containsKey("num2")) {
 			try {
 				double num1 = Double.parseDouble(params.get("num1"));
